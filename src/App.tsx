@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import MainPage from "./Components/MainPage/MainPage.js";
+import UnderConstruction from "./Components/UnderConstruction/UnderConstruction.js";
+import RutasMasCortas  from './Components/RutasMasCortas/RutasMasCortas.js'
+import Mochila from './Components/Mochila/Mochila.js'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
-function App() {
+const App =() => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <Router>
+          <Switch>
+              <Route exact path="/" component={MainPage}/>
+              <Route exact path="/NotImplemented" component={UnderConstruction}/>
+              <Route exact path="/RutasMasCortas" component={RutasMasCortas}/>
+              <Route exact path="/Mochila" component={Mochila}/>
+
+          </Switch>
+        </Router>
+
     </div>
   );
 }
